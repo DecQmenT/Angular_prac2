@@ -1,0 +1,7 @@
+<div class="container">
+    <label for="">Your text</label>
+    <input type="text" [(ngModel)]="text">
+    <label for="">Truncate</label>
+    <input type="number" [(ngModel)]="truncateLvl">
+    <label for="">{{text | truncate : truncateLvl}}</label>
+</div>

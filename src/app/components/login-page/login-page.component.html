@@ -1,0 +1,9 @@
+<div [formGroup]="group">
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email" placeholder="example@gmail.com">
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+    <button [disabled]="group.invalid" (click)="check()">
+    Login
+    </button>
+</div>

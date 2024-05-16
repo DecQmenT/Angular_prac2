@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Reactive Form</h1>
+    <div id="form" [formGroup]="group">
+  
+      <label for="name">Firstname</label>
+      <input type="text" name="name" id="name" placeholder="John" formControlName="name"/>
+      <div *ngIf="group.get('name')?.invalid && group.get('name')?.touched">
+        <small *ngIf="group.get('name')?.errors?.['required']">Name is required.</small>
+        <small *ngIf="group.get('name')?.errors?.['minlength']">Name must be at least 3 characters long.</small>
+      </div>
+  
+      <label for="lastname">Lastname</label>
+      <input type="text" id="lastname" placeholder="Smyth" formControlName="lastname"/>
+      <div *ngIf="group.get('lastname')?.invalid && group.get('lastname')?.touched">
+        <small *ngIf="group.get('lastname')?.errors?.['required']">Lastname is required.</small>
+        <small *ngIf="group.get('lastname')?.errors?.['minlength']">Lastname must be at least 3 characters long.</small>
+      </div>
+  
+      <label for="date">Date of Birth</label>
+      <input type="date" id="date" formControlName="date"/>
+      <div *ngIf="group.get('date')?.invalid && group.get('date')?.touched">
+        <small *ngIf="group.get('date')?.errors?.['required']">Date of Birth is required.</small>
+      </div>
+  
+      <label for="age">Age</label>
+      <input type="number" name="age" id="age" min="0" placeholder="-" formControlName="age"/>
+  
+      <ng-container *ngIf="group.valid; else invalidButton">
+        <button moveButton>Submit</button>
+      </ng-container>
+      <ng-template #invalidButton>
+        <button [disabled]="group.invalid">Submit</button>
+      </ng-template>
+    </div>
+  </div>
+  
