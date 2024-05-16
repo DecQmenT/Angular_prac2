@@ -11,5 +11,5 @@ import { TruncatePipe } from '../../pipes/truncate.pipe';
 })
 export class PipePageComponent {
   text: string = '';
-  truncateLvl: number = 100;
+  truncateLvl: number = 5;
 }
